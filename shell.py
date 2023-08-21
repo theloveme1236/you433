@@ -317,13 +317,17 @@ def failed_success_minutes():
             
         if erro_minutes == 'No tasks are currently available, please try again later...':
             print('No tasks are currently available')
-            stop_def_Subscribe= 'stop'
-            
-            if stop_def_like_con == 5:
-                print('stop_def_like_con')
-                stop_def_like  = 'stop'
-            stop_def_like_con +=1
-            print('stop_def_like_con',stop_def_like_con)
+            current_url = driver.current_url
+            if current_url=='https://www.like4like.org/earn-credits.php?feature=youtubes':
+                print('Subscribe_erro_stop_time')
+                stop_def_Subscribe= 'stop'
+            if current_url=='https://www.like4like.org/earn-credits.php?feature=youtube':
+                print('like_erro_stop_time')            
+                if stop_def_like_con == 3:
+                    print('stop_def_like_con')
+                    stop_def_like  = 'stop'
+                stop_def_like_con +=1
+                print('stop_def_like_con',stop_def_like_con)
         #driver.quit()
     except NoSuchWindowException:
         print('failed_success_minutes')
